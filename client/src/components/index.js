@@ -4,3 +4,6 @@ export { default as Welcome } from "./Welcome";
 export { default as Footer } from "./Footer";
 export { default as Services } from "./Services";
 export { default as Transactions } from "./Transactions";
+export { default as DataAnalytics } from "./DataAnalytics"; // Add this line to export Data Analytics
+
+

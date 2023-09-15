@@ -1,0 +1,65 @@
+<!-- Add this to your analytics.html file -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bond Purchase Analysis</title>
+    <!-- Include Chart.js from a CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div style="width: 80%; margin: 20px auto;">
+        <canvas id="bondChart" width="400" height="200"></canvas>
+    </div>
+
+    <script>
+        // Generate random data for the chart
+        const generateRandomData = () => {
+            const data = [];
+            const labels = [];
+            for (let i = 1; i <= 12; i++) {
+                labels.push(`Month ${i}`);
+                data.push(Math.random() * 100); // Replace with your actual bond purchase data
+            }
+            return { labels, data };
+        };
+
+        const { labels, data } = generateRandomData();
+
+        // Create a chart
+        const ctx = document.getElementById('bondChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Bond Purchases',
+                    data: data,
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1,
+                    fill: false,
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        beginAtZero: true
+                    },
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top',
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
